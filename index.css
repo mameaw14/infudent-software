@@ -1,0 +1,255 @@
+p {
+  font-size: 20px;
+}
+
+body {
+  background-image: url('imgs/bg.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#waterDrop {
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+}
+
+#header {
+  font-weight: bold;
+}
+
+#projectName {
+  font-family: "Tw Cen MT";
+  font-size: 40px;
+  margin-left: 40px;
+  margin-top: 30px;
+  padding: 20px;
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+}
+
+#status {
+  font-family: "Tw Cen MT";
+  margin-left: 20px;
+  margin-top: 30px;
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 40px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+}
+
+#time {
+  font-family: "Tw Cen MT";
+  font-size: 40px;
+  text-align: center;
+  margin-left: 20px;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+}
+
+#increaseWaterText {
+  font-family: "Tw Cen MT";
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 615px;
+  left: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+}
+
+#switchWaterOn {
+  position: absolute;
+  top: 655px;
+  left: 90px;
+}
+
+#waterRate {
+  position: absolute;
+  top: 283px;
+  padding-top: 20px;
+  left: -83px;
+}
+
+#addWater{
+  position: absolute;
+  border-radius: 10px;
+  top: 725px;
+  left: 50px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: -10px;
+  padding-right: 10px;
+  background-color: rgba(255,255,255,0.3);
+}
+
+#addWTValue {
+  font-family: "Tw Cen MT";
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+
+#water.vertical{
+  display: inline-block;
+  width: 350px;
+  height: 200px;
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+}
+
+#addWT.vertical{
+  width: 900px;
+  height: 30px;
+}
+
+#tempRate {
+  position: absolute;
+  top: 325px;
+  right: -223px;
+  padding-top: 20px;
+}
+
+#temp.vertical {
+  display: inline-block;
+  width: 605px;
+  height: 30px;
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+}
+
+#celsius {
+  font-family: "Tw Cen MT";
+  text-align: right;
+  position: absolute;
+  top: 600px;
+  right: 145px;
+  font-weight: bold;
+  font-size: 100px;
+  color: #fff;
+}
+
+#celsiusUnit {
+  font-family: "Tw Cen MT";
+  position:absolute;
+  top: 580px;
+  right: 115px;
+  font-weight: bold;
+  font-size: 60px;
+  color: #fff;
+}
+
+#graph {
+  position: absolute;
+  top: 160px;
+}
+
+#graphGround {
+  position : absolute;
+  left: 300px;
+}
+
+#graphLight {
+  position: absolute;
+  left: 730px;
+}
+
+#graphRate {
+  text-align: right;
+  font-family: "Tw Cen MT";
+  font-size: 20px;
+}
+#rate1{
+  position: absolute;
+  top: 145px;
+  left: 250px;
+}
+#rate2{
+  position: absolute;
+  top: 245px;
+  left: 260px;
+}
+#rate3{
+  position: absolute;
+  top: 345px;
+  left: 270px;
+}
+
+#titleGraph {
+  font-family: "Tw Cen MT";
+  font-size: 40px;
+  position: absolute;
+  top: 360px;
+  left: 390px;
+}
+
+#titleGraph2 {
+  margin-left: 220px;
+}
+
+#run1{
+  position: absolute;
+  top: 30px;
+  left: 545px;
+}
+.run2{
+  padding-top: 5px;
+  color: #00c365;
+  font-family: "Tw Cen MT";
+  font-size: 35px;
+  margin: 10px 0 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 30em;
+  animation: type 4s steps(60, end);
+}
+
+.run2:nth-child(2){
+  animation: type2 8s steps(60, end);
+}
+
+@keyframes type{
+  from { width: 0; }
+}
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; }
+}
+
+@keyframes blink{
+  to{opacity: .0;}
+}
+
+::selection{
+  background: black;
+}
+
+#buttonTime {
+  background-color: transparent;
+  border-color: transparent;
+  position: absolute;
+  top: 440px;
+  right: 120px;
+}
+
+#myModal{
+  top:30%;
+  outline: none;
+}
+/*.vertical {
+  box-shadow: inset 0px 4px 6px #ccc;
+}*/
+/*.progress-bar {
+  box-shadow: inset 0px 4px 6px rgba(100,100,100,0.6);
+}*/

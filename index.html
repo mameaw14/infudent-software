@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>I N F U D E N T</title>
+
+    <!--for popup time setup -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <!-- //TOGGLE SWITCH -->
+    <script type='text/javascript'
+      src='http://code.jquery.com/jquery-2.0.2.js'></script>
+    <link rel="stylesheet" type="text/css"
+      href="http://getbootstrap.com/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css"
+      href="http://www.bootstrap-switch.org/dist/css/bootstrap3/bootstrap-switch.css">
+    <script type='text/javascript'
+      src="http://www.bootstrap-switch.org/dist/js/bootstrap-switch.js"></script>
+    <script type='text/javascript'>//<![CDATA[
+    $(window).load(function(){
+        $("input.switch").bootstrapSwitch();
+    });
+    </script>
+    <script type="text/javascript" src="smoothie.js"></script>
+
+
+</head>
+
+<body id='bodyBg'>
+
+  <!-- <img id='bus' src="imgs/green.png" style="position:absolute; width:100%; height:100%;"  /> -->
+  <div id="container">
+
+    <div id="header" class="row">
+
+      <div id="projectName" class="col-md-3">
+        <span >I N F U D E N T</span>
+      </div>
+
+      <div id="status" class="col-md-5">
+        <span id="statusText" >STATUS :</span>
+      </div>
+
+      <div id="time" class="col-md-2">
+        <span id="hour"></span>
+        <span id="min"></span>
+        <span id="sec"></span>
+      </div>
+    </div>
+
+    <div id="waterRate">
+      <div id="water" class="progress vertical" >
+        <div id="waterValue"class="progress-bar" role="progressbar"style="width: 100%;">
+        </div>
+      </div>
+    </div>
+
+    <img id="waterDrop" src="imgs/none.png" style="position:absolute; width:100%; height:100%;" />
+
+    <div id="tempRate">
+      <div id="temp" class="progress vertical">
+        <div id="tempValue" class="progress-bar progress-bar-danger" role="progressbar" style="width:0%;">
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <span id="increaseWaterText">ADD WATER YOUR PLANTS.</span>
+    </div>
+
+    <div id= "switchWaterOn">
+      <input id = "increaseWater" type="checkbox" class="switch" off-label data-toggle="toggle" />
+    </div>
+
+    <div id="addWater">
+      <div id="addWT" class="progress vertical">
+        <div id="addWTValue" class="progress-bar progress-bar-info" role="progressbar" style= >
+        </div>
+      </div>
+    </div>
+
+    <div id="celsius">
+      <span id="celsiusValue">0</span>
+    </div>
+    <div id="celsiusUnit">
+      <span>°c</span>
+    </div>
+
+    <div id="graph">
+      <div id ="graphGround">
+        <canvas id="mycanvasGround" width="400" height="200"></canvas>
+      </div>
+      <div id="graphLight">
+        <canvas id="mycanvasLight" width="400" height="200"></canvas>
+      </div>
+    </div>
+
+    <div id="graphRate">
+      <div id="rate1"><span>100 -</span></div>
+      <div id="rate2"><span>50 -</span></div>
+      <div id="rate3"><span>0 -</span></div>
+    </div>
+
+    <div id="titleGraph">
+      <span id="titleGraph1">Soil Moisture</span>
+      <span id="titleGraph2">Light Intensity</span>
+    </div>
+
+    <div id="run1">
+      <p  id="statusValue"class="run2">Water Level is sufficient</p>
+    </div>
+
+    <div class="container2">
+          <!-- Trigger the modal with a butto fn -->
+          <!-- <button id="buttonTime" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Set Time</button> -->
+          <img id="buttonTime" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" src="imgs/time.png" />
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Set your time</h4>
+                </div>
+                <div class="modal-body">
+                  <input id = "check" type="checkbox" class="switch" off-label data-toggle="toggle" />
+
+                  <select name="time" disabled id="timeSelect">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                  </select>
+
+                  <select name="duration" disabled id="duration">
+                    <option value="1">AM</option>
+                    <option value="2">PM</option>
+                  </select>
+
+                </div>
+                <div class="modal-footer">
+                  <button id="acceptTimeSet"type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  </div>
+
+</body>
+
+<script type="text/javascript">
+  // var reserve = $('#reserve');
+  var hour = $('#hour');
+  var min = $('#min');
+  var sec = $('#sec');
+
+  var elem = document.getElementById("addWTValue");
+  var waterTank = document.getElementById("waterValue");
+  var temp = document.getElementById("tempValue");
+  var percentOrigin = waterTank.style.width;
+  var width = 0;
+  var stateIncrease ;
+  var stateDecrease ;
+  var OpenWater = $('#increaseWater');
+
+  var receive = [] ;
+  var intervalFrame = 1000;
+  var checkHello = 0;
+
+  setInterval(function(){
+    var date = new Date();
+    $.ajax( {
+        url: 'http://10.32.176.4/external'
+    })
+    .done(function (data){
+        receive = data.split("-");
+    });
+
+    var hourText = date.getHours();
+    var minText = date.getMinutes();
+    var secText = date.getSeconds();
+
+    if (hourText < 10 )
+      hourText = '0' + hourText ;
+    if (minText < 10 )
+      minText = '0' + minText;
+    if (secText < 10)
+      secText = '0' + secText;
+
+    hour.html(hourText + ' :');
+    min.html(minText + ' :');
+    sec.html(secText);
+
+    lineLight.append(new Date().getTime(),receive[2]);
+    lineGround.append(new Date().getTime(),receive[1]);
+    setTemp(receive[3]);
+    setWaterTank(receive[0]);
+
+     checkTimeSet(hourText);
+
+     if(stateIncrease == false){
+         $("#addWTValue").html("");
+         elem.style.width = '0%';
+         width = 0;
+         stateIncrease = true;
+     }
+
+
+  }, intervalFrame);
+
+  function setTemp( c ) {
+    if ( c > 50 ) c = 50;
+    $("#celsiusValue").html(c);
+    temp.style.width = (c*2) + '%';
+  }
+
+  function setWaterTank(lb){
+
+    var percent = (lb/500.0)*100;
+
+    if (parseInt(percentOrigin.split("%")) - percent >= 5)
+      $('#waterDrop').attr("src", 'imgs/waterDrop.gif');
+    else if (parseInt(percentOrigin.split("%")) - percent < 0){
+      $('#waterDrop').attr("src", 'imgs/none.png');
+    }
+
+    if (percent < 1){
+      $('#waterDrop').attr("src", 'imgs/none.png');
+    }
+
+    waterTank.style.width = percent + '%';
+    console.log(checkHello);
+    if ((percent <= 20 && checkHello == 1) || (percent <= 20 && checkHello == 0) ){
+      setStatus("Water almost run out.",'lesswater');
+    }
+    else if (percent > 20 && checkHello == 0)
+      setStatus("Water Level is sufficient",'none');
+    else if (checkHello == 1){
+      if (stateCheck == true){
+        if(durationValue == 2){
+          setStatus("Next watering time is " + timeUse + " pm" , "time");
+        } else {
+          setStatus("Next watering time is " + (timeUse+12) + " am" , "time");
+        }
+      }
+    }
+  }
+
+  function setStatus(text,statusChange){
+    $('#statusValue').html(text);
+    var x = document.getElementById("statusValue");
+
+    if (statusChange == "lesswater"){
+      x.style.color = "Red";
+      x.style.fontSize = "40px";
+      $.ajax({
+        url: 'http://10.32.176.4/external/' + '3'
+      })
+    } else if (statusChange == "time"){
+      x.style.color = "Orange";
+      x.style.fontSize = "33px";
+    } else {
+      x.style.color = "#00c365";
+      x.style.fontSize = "35px";
+    }
+  }
+
+  $(window).load(function(){
+    $("input.switch").bootstrapSwitch();
+  });
+
+  $('input[id="increaseWater"]').on('switchChange.bootstrapSwitch', function(event, state) {
+
+    stateIncrease = state ;
+
+    if(state == true){
+      $.ajax( {
+        url: 'http://10.32.176.4/external/' + '1'
+      })
+      console.log("add");
+      increaseMove();
+    }
+  });
+
+  function increaseMove() {
+
+    var id = setInterval(frame, 200);
+
+    function frame() {
+
+      if(stateIncrease == true) {
+          width+=20;
+          if (width > 100) {
+
+            OpenWater.prop('checked', false).change()
+            stateIncrease = false;
+          $("#addWTValue").html("FINISH!!");
+              clearInterval(id);
+          } else {
+            elem.style.width = width + '%';
+            $("#addWTValue").html("Progress.... " + width + "%");
+          }
+      } else {
+          clearInterval(id);
+      }
+    }
+  }
+
+    var smoothieLight = new SmoothieChart({grid:{fillStyle:'rgba(255,255,255,0.19)'},labels:{disabled:true},maxValue:100,minValue:0});
+    smoothieLight.streamTo(document.getElementById("mycanvasLight"));
+    var lineLight = new TimeSeries();
+
+    smoothieLight.addTimeSeries(lineLight,{lineWidth:5,strokeStyle:'#ffde42'});
+
+    function myYRangeFunction(range) {
+       // TODO implement your calculation using range.min and range.max
+      var min = 0;
+      var max = 100;
+      return {min: min, max: max};
+    }
+
+    var smoothieGround = new SmoothieChart({grid:{fillStyle:'rgba(255,255,255,0.19)'},labels:{disabled:true},maxValue:100,minValue:0});
+    smoothieGround.streamTo(document.getElementById("mycanvasGround"));
+    var lineGround = new TimeSeries();
+    smoothieGround.addTimeSeries(lineGround,{lineWidth:5,strokeStyle:'#833805'});
+
+    function myYRangeFunction(range) {
+      var min = 0;
+      var max = 100;
+      return {min: min, max: max};
+    }
+
+    //window popup set time
+
+    var stateCheck;
+    var d = new Date();
+    var timeNormal = d.getHours();
+    var e = document.getElementById("timeSelect");
+    var timeUse = e.options[e.selectedIndex].value;
+    var a = document.getElementById("duration");
+    var durationValue = a.options[a.selectedIndex].value;
+
+
+    $('input[id="check"]').on('switchChange.bootstrapSwitch', function(event, state) {
+      stateCheck = state ;
+      if(stateCheck == false){
+        disable();
+      } else {
+        enable();
+      }
+    });
+
+    function checkTimeSet(hourText){
+      if ( hourText == timeUse && stateCheck == true){
+        $.ajax( {
+          url: 'http://10.32.176.4/external/' + '1'
+        });
+        stateCheck = false
+        checkHello = 0;
+      }
+    }
+
+    $('#acceptTimeSet').click(function(){
+      timeUse =  parseInt(e.options[e.selectedIndex].value);
+      durationValue = a.options[a.selectedIndex].value;
+      checkHello = 1;
+    })
+
+    function disable() {
+      document.getElementById("timeSelect").disabled=true;
+      document.getElementById("duration").disabled=true;
+    }
+    function enable() {
+      document.getElementById("timeSelect").disabled=false;
+      document.getElementById("duration").disabled=false;
+    }
+
+</script>
+</html>
